@@ -23,9 +23,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/abdrahmansoltan/Jobify/issues"
+    "url": "https://github.com/soma7513/JobTrack/issues"
   },
-  "homepage": "https://github.com/abdrahmansoltan/Jobify#readme",
+  "homepage": "https://github.com/soma7513/JobTrack#readme",
   "dependencies": {
     "concurrently": "^7.2.1"
   }
