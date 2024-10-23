@@ -79,7 +79,7 @@ const AppProvider = ({ children }) => {
   // -------------------axios---------------------- //
   // creating Setup Instance with header for requests
   const authFetch = axios.create({
-    baseURL: "/api/v1",
+    baseURL: "https://jobtrack-umb0.onrender.com/api/v1",
   });
   // request Interceptors: https://axios-http.com/docs/interceptors
   authFetch.interceptors.request.use(
