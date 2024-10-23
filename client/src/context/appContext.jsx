@@ -133,7 +133,7 @@ const AppProvider = ({ children }) => {
   const registerUser = async (currentUser) => {
     dispatch({ type: REGISTER_USER_BEGIN });
     try {
-      const response = await axios.post(`/api/v1/auth/register`, currentUser);
+      const response = await axios.post(`${baseURL}/auth/register`, currentUser);
       const { user, token, location } = response.data;
       dispatch({
         type: REGISTER_USER_SUCCESS,
@@ -152,7 +152,7 @@ const AppProvider = ({ children }) => {
   const loginUser = async (currentUser) => {
     dispatch({ type: LOGIN_USER_BEGIN });
     try {
-      const response = await axios.post(`/api/v1/auth/login`, currentUser);
+      const response = await axios.post(`${baseURL}/auth/login`, currentUser);
       const { user, token, location } = response.data;
       dispatch({
         type: LOGIN_USER_SUCCESS,
@@ -171,7 +171,7 @@ const AppProvider = ({ children }) => {
   const updateUser = async (currentUser) => {
     dispatch({ type: UPDATE_USER_BEGIN });
     try {
-      const { data } = await authFetch.patch("/auth/updateUser", currentUser);
+      const { data } = await authFetch.patch(`${baseURL}/auth/updateUser`, currentUser);
       const { user, location, token } = data;
 
       dispatch({
