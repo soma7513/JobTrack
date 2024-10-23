@@ -6,11 +6,37 @@ import dotenv from "dotenv";
 dotenv.config();
 const port = process.env.PORT || 5000;
 
+
+// ------------cors------------ //
 import cors from 'cors';
-app.use(cors({
-  origin: "https://job-track-02-dbba8rox0-somas-projects-4e1e316d.vercel.app",
-  credentials: true
-}));
+
+const allowedOrigins = [
+  'https://job-track-02.vercel.app',  // Your main frontend deployment
+  'https://job-track-02-dbba8rox0-somas-projects-4e1e316d.vercel.app'  // Any staging/development URLs
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    // Check if the request's origin is in the allowed origins
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,  // Allow credentials (cookies, authentication)
+};
+
+app.use(cors(corsOptions));
+
+
+
+
+
+
 
 
 
