@@ -6,6 +6,14 @@ import dotenv from "dotenv";
 dotenv.config();
 const port = process.env.PORT || 5000;
 
+import cors from 'cors';
+app.use(cors({
+  origin: "https://job-track-02-dbba8rox0-somas-projects-4e1e316d.vercel.app",
+  credentials: true
+}));
+
+
+
 // ------------DB & AuthenticateUser------------ //
 import connectDB from "./db/connect.js";
 import morgan from "morgan";
